@@ -1,9 +1,4 @@
-AlphaBase
-=========
-
-PSP Debug Bash and Multi-Environment Shell
-
-AlphaBase HM7 v3.6.8 by Wesker aka DekraN
+AlphaBase HM7 v3.6 by Wesker aka DekraN
 this is a simple homebrew which may help you for debugging your PSP
 
 Installation:
@@ -57,3 +52,6 @@ in AlphaBase prints. For the detailed COMMANDS LIST just see cmdlist.txt
 
 
 							Regards, Wesker.
+
+
+

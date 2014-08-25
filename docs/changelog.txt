@@ -1,0 +1,335 @@
+Changelog:
+
+v0.2 -- Beta release
+
+v1.0 -- First public release
+
+v1.5 --
+
+- Added 'mod' command;
+- Deleted 'web' command because a bug doesnt allow to launch webbrowser.PBP in LP HM7;
+- Fixed a bug in all the P.S.E.R. commands, which didn't allow to start the eboots, iso etc...
+- Fixed a bug in the playlist system, which didn't allow to play the other files except the first;
+- Fixed a bug in the B.C.S. (Boolean-Types Control System),
+now all the Bool-Require commands work perfectly.
+- Fixed a bug in the loading font process, now they work perfectly;
+- New controls on the escape chars, if the print function finds one of them, it will replace
+with a blank char. Even if with this system the q-list environment is still deprecated, now
+the code is more lua-readable and file reading prints are more elegant.
+- New controls on the start if curfile and curdir exist if mode is normal;
+- Made more powerfull the printing system, so if you reach the end or the start of the prints,
+and if mode is normal, then pressing another time respectively the down and the up pad will port
+you respectively to the start or the end of the prints;  
+- Calculator and Playlist optimized;
+- Language Syntax optimized;
+- Code optimized;
+- Script speed increased of 30%;
+- New Usage methods, only for Danzeff Keyboard (Commands Helper), so you can swap the commands
+(and the functions if 'exec ' is typed) directly on the inputprint line by pressing up / down pads.
+It will print also all the params required and not-required like a normal usageprint;
+- Optimized the 'cmd' command, now cause the new usage methods, it will print or not the usageprint
+of all command or all the functions;
+- 'info' command now will print you the total commands and the size of the UMD, if it's inserted;
+- Optimized all the A.B.E. (AlphaBase Environment) command (like char, text etc...).
+- Changed the Complex Parameter Seperator, now it's '~', because the previous was the same as the
+AUF Files Parameter Seperator.
+
+v2.0 --
+
+- Added 'sub', 'goto', 'ochar', 'print2', 'make' and 'switch' commands;
+- Deleted 'rchar' command cause it has been attached to 'ochar';
+- Fixed a bug in the 'alarm' command, now the time checking system works perfectly;
+- Fixed a bug in the 'imm' command, which didn't allow to display the usageprint cause
+a bad control of does paramfile exist, already put in the 'load (img)' command;
+- Fixed a bug in the Danzeff Keyboard Commands Helper, which didn't allow to scrolldown;
+- Fixed a bug in the 'unload' command, which didn't allow to unload an image if this was
+set as mouse cursor;
+- Battery Stuffs on the 'info' command optimized;
+- Optimized the Commands Helper for Danzeff Keyboard, added calc stuffs (refer to math functions);
+- Optimized the 'unload' command, now you can unload all elements from AlphaBase environment
+by typing only 'unload' if mode is normal, else AB will display you the usageprint; 
+- Optimized the 'input' command;
+- Optimized all the 'I/O' commands;
+- Optimized the printing system;
+- Now the Complex Parameter Seperator can be set by SETTINGS.ini or directly in-shell,
+by typing 'ochar 1 cps'. This system works also for set in-shell the R.R.C.;
+- Added Convalidation system on the 'register' and 'pass' commands. It works only if mode is Normal;
+- Language Syntax optimized;
+- Code optimized;
+- Added the 'Shot' system: now in the commands which generate User Execution
+(like print2, imm...) you can modify an old input by inserting at the end of line,
+separed by CPS, the old input ID. This will not work obviously for the Timers.
+- 'print' command has been divided into 'print' and 'print2', respectively
+the first one to do an AlphaBase print, while the second to do an User prints,
+cause the introducing of the Shot system;
+- Now you can swap the inputline chars by scrolling left or right;
+- Removed the qlist system cause the file manipulation in HM7 is deprecated
+(the escape chars aren't considered whilst reading a file,
+so qlist environment development is useless.
+- Added command maker (not implemented yet), and events proposal,
+also for external scripts (LUA);
+- Eboot updated.
+
+v2.3 --
+
+- Added 'asrt' and 'sys' commands;
+- Fixed a bug in the 'share' command, which required the [ADHOC] bad parameter;
+- Fixed a bug in the 'ninfo' command, which didn't allow to put a param;
+- Language Syntax optimized;
+- Code optimized;
+- Optimized the Shot system;
+- Now the F.P.S. (File Parameter Seperator) can be set by SETTINGS.ini or by typing 'ochar 1 fps';
+- Added the pseudo-label system. Now you can also enter the entire line in 'goto' command.
+It may be useful if you, for example, before important prints, do a singleword print (labelprint);
+thus later, you can reach the interested range by typing 'goto label'.
+- Added C.M.S. (Color Management System). Now you can also systemprint a string by using
+the specified color, and systemcolor can be set by typing 'sys col';
+- Now colours dont need to be unloaded cause they are highly used in the programme.
+- Optimized the 'load', 'unload', 'loadex', 'print' and 'helper' command;
+- Optimized the Environment Security. Now an user, whose level is minor than main level,
+cannot manipulate the Users Variables (which identifiers are now more complex);
+- Script speed increased of 10% (by doing globals some local functions on results calling);
+- Eboot updated.
+
+v2.6 --
+
+- Added 'mac', 'fmac', 'ban', 'get', 'unget', 'find' and 'check' commands,
+- Removed the command 'test' due to inutility;
+- Fixed a bug in the 'udp' command, which closed connection to any UDP server socket in any case;
+- Fixed a bug in the 'cmd' command, which showed a lua-error on calling;
+- Fixed a bug in the 'res' command, which made unworkable the environment
+(any User Execution was invisible) if the systemprints was reset and if the number of systemprints was > than 26.
+- Fixed a bug in all users commands, which didn't work cause a bug in the function that checks
+if the user level is minor than main level;
+- Fixed a bug in the extension control system, which showed a lua-error on calling
+if the given paramstring length is 1;
+- Convalidation System is now also supported by the 'log' command;
+- Added the Commands Macro System, now you can macro all the commands, temporary if you do inshell,
+static if you write the directives (see the updated documentation for this) into a-mac.auf.
+You can reset the command list from the macro previously loaded by simply typing 'mac'.
+If you want load a macrolist from a file (that is default-set to 'a-mac.auf'), type 'fmac path',
+where path is the path of this file. Otherwise, for load temporary a macro, type 'mac cmd~replace'.
+However, just be careful that there isn't any control on the replace string; 
+- Added the 'get' feature. Now you can snapshot more strings and showing them by using the 'get' command.
+If mode is Normal, this string will be also displayed as pre-written text in the Official and Danzeff Keyboard.
+You can select the current snapshot string in the snaplist by typing 'get pos', where pos is the position of
+this string in the snaplist. You can also remove a string by typing 'unget pos' or replace it with another one
+by typing 'unget pos~newstring'. However, it's highly recommended to set the Programme Mode as Normal when you
+work with snapshot strings, in order to increase the number of controls, which are essentials for this system; 
+- Now all User Management Commands are admin-proof (an admin cannot modify the profile of another admin);
+- Renamed some commands;
+- Optimized the C.M.S. (Color Management System), and added a new default syscolor, the azure, in order
+to systemprint external strings, for example the credits or the welcome/exit messages;
+- Optimized the SETTINGS.ini structure and management;
+- Optimized the 'log', 'reg', 'ctrl', 'sys', 'mouse', 'print2' 'mark', 'alarm', 'mlist', play', 'helper',
+'size', 'ahs', 'ahr', 'copy', commands;
+- Optimized the Mouse System;
+- Added new controls and info messages in the whole program.
+- Now you can set also via SETTINGS.ini the initial keyboard,
+the Convalidation System and the U.E.L. (User Execution Limiter);
+- Convalidation System now enforces also the E.S.M. about the unauthorized manipulation of the AUF Files
+if the user level is minor than main level;
+- Now in the 'helper' command you can decide to view the status of the Normal or SETTINGS.ini vars respectively
+by doing 'helper 0' or 'helper 1'. To view alls, just type 'helper';
+- Made more linear the commands searching system, so C.E.U.'s (Commands Elaboration Unit)
+speed increased of about 5-10%;
+- Language Syntax optimized;
+- Code optimized;
+- Eboot updated.
+
+v2.8 --
+
+- Added the command 'col';
+- Removed the command 'help' and renamed the 'cmd' command as 'help';
+- Fixed a bug in all the commands that contain controls about the unauthorized manipulation of the AUF Files
+if the user level is minor than main level, which showed a bad error about the AUF Extension control (cause the E.S.M.);
+- Fixed a bug in all the commands that support more extensions, which didn't work if you omit the extension;
+- Fixed a bug in the 'find' command, which didn't work if the element was a font;
+- Fixed a bug in the 'fmac' command, which didn't load the macrofile cause a bad control;
+- Fixed a bug in the 'make' command, which created the folders in bad positions;
+- Now in all the commands that support more extensions, if mode is Normal then the NO-Extension proof system works,
+otherwise it will show you an info errormessage if you've tried to using it;
+- Now also the command 'share' supports the NO-Extension proof system;
+- Added the clearcol system. Now you can set the background color, that is defaultset to the opposite values of R,G,B
+of the system color if mode is Normal, otherwise it's defaultset to to black);
+simply by typing 'col color';
+- Optimized the extension control system;
+- Optimized the 'log', 'tick' and 'sys' commands;
+- Language Syntax optimized;
+- Code optimized;
+- Done globals all the  externable local functions on results calling, in order to optimize the C.E.U.;
+(Commands Elaboration Unit);
+- Script Speed increased of 10%;
+- Eboot updated.
+
+v3.0 --
+
+- Added the commands 'test' (obviously not the old one), 'fman', 'twrite', 'tread', 'seek', 'ffind', 'adm' and 'usage';
+- Fixed a bug in the 'alarm' command, which didn't work cause showed a double LUA Error on calling;
+- Fixed a bug in the 'slvl', which removed an user suspension, if this was set, on calling;
+- Fixed a bug present in some last commands of commandslist cause bad indexing of the current command variable;
+- Fixed a bug in the Quitting Process, which didn't allow to show the 3 seconds countdown if line was > than 27;
+- Optimized the 'cred', 'goto', 'alarm', 'write', 'ban', 'lvl', 'slvl', 'log' and 'find' command;
+- Optimized the A.E.S.S.S. (AlphaBase Environment Subscripts Support System), by using metatables. Now you can
+use the related functions in more scripts, also in the main script itself (just implemented in the script.lua);
+- Optimized the syntax at the beginning of the programme;
+- Optimized the ban-check on the 'log' command;
+- Optimized the Helper System;
+- Added a control at the beginning of the programme about cpu_clock;
+- Now typing 'ban' without parameter will print you the ban-list If mode is 0, otherwise will show you the usageprint.
+- Now typing 'lvl' without parameter will print you the users levels list;
+- Now you can call a cmd from the OSK by typing also its ID;
+- Enforced the E.S.M. by optimizing the admin-proof system. Now being the param yourself, in the commands
+which require the control system, isnt a forbidden case.
+- Removed the Convalidation System because the couplecontrols mode-check was bad structurated and so, not completely useful.
+All the related controls now refer to the programme mode control;
+- Removed the security control (repeating PASSWORD param) in the 'log' command due to inutility;
+- Removed the command 'check' due to removing Convalidation System;
+- Language Syntax optimized;
+- Environment Commands Syntax optimized;
+(however not renamed any existant command except 'helper' in 'hlpr' and 'credits' in 'cred');
+- Code optimized;
+
+v3.2 --
+
+- Added the commands 'key', 'pos', 'slist' and 'env';
+- Removed the command 'mod' due to inutility (cause the variables welcome and exit are static vars);
+- Completely fixed a bug in the 'wlan' command, which was totally bugged and unworkable;
+- Fixed a bug in the 'list' command, which didn't work because a LUA error;
+- Fixed the Stringer Function (the path param viewfix), which didn't always generate the expected results;
+- Added the Pos Control System (Mouse Required). You can assign an INPUT execution to a given screen area
+(screen bounds, which refer to XMIN, YMIN, XMAX, YMAX) by using the 'pos bounds~input";
+- Added the Keybinding system. Now you can assign an INPUT execution to a given KEY
+simply by typing 'key input~key";
+- Added controls about the coords param in the Graphical Commands (like 'imm', 'rect' etc.);
+- Now it's possible to view also the optionally INI vars as Helper Vars (but viewing all should took a bit of time);
+- Now the 'dbg' command make a control about the user data variable, in order to nilcheck and fix all the subvars which
+contain important information about the level, the register d/t and the login d/t of an user;
+- For view the current IP, obviously after having initialized the WLAN via 'wlan' command, just type 'info';
+- Renamed the commands: 'suspend' in 'sby', 'ban' in 'susp', 'test' in 'dbg' and 'shutdown' in 'sdown';
+- Optimized the Splash Function, adding the fader double effect, and add a control on the splash image file;
+- Optimized the 'switch', 'sens', 'seek', 'print2', 'imm', 'rect', 'line', 'fman', 'tread', 'dbg' and 'susp' command;
+- Code optimized;
+- Language Syntax optimized;
+- Environment Commands Syntax optimized;
+- Eboot updated.
+
+v3.2.2 --
+
+- Fixed a bug in all the Graphical Commands, which didn't allow to execute them if the coords was right;
+- Fixed a bug in the Access Function (which checks whether the current user is an admin or not);
+- Fixed a bug in the File Manipulation Commands, which didn't work because the
+recent restructuring of the file pointer finding system; 
+- Restructured the User Data System;
+- Code optimized;
+
+v3.2.4 --
+
+- Added the 'play2' and 'mfind' commands;
+- Fixed a bug in the 'fread' command, which didn't allow to setup correctly the second param (the formats);
+- Optimized the 'load', 'unload', 'fread' and 'play' commands;
+- Now the colors can be unloaded again, because has been added a new control on the 'unload' command,
+in order to check whether the given ID color is a main color or not;
+- Now you can directly load and play a given PATH track by typing 'play2 path';
+- Code highly optimized;
+
+v3.2.5 --
+
+- Added more controls at the beginning on the splash image.
+Now, if the mode is Normal and the image doenst exist or it isn't in a valid format,
+then an error will be showed before the welcome prints;
+- Added more controls at the beginning on the current directory.
+Now if the mode is Normal and the directory doesnt exist, then an error will be showed before the welcome prints;
+- Added more controls at the beginning on the current file.
+Now if the mode is Normal and the file doenst exist, then an erorr will be showed before the welcome prints;
+- Code highly optimized;
+
+v3.60 --
+
+- Added the 'envs', 'cenv', 'menv', 'cpu2', 'tree', 'find', 'col' commands;
+- Removed the commands 'ffind', 'mfind' and 'sys' commands;
+- Removed all the commands related to the Temporary File Manipulation:
+'ffind', 'fman', 'twrite', 'tread', 'seek' because they're useless and dangerous for heavy files,
+and cause the HM7 File Manipulation System is however a bit deprecated;
+now you can manipulate any file at your own risk by the general command 'exec'.
+Example: "exec hi_txt = io.open("hi.txt",'w')hi_txt:write("hello, world!")";
+- Renamed the commands: 'help' in 'hlp', 'make' in 'dirs', 'update' to 'upd', 'dofile' to 'dfile, 'extract' to 'ext';
+- Optimized and fixed all the commands;
+- Optimized all the D.T.E. Features (Directly Template Executing), by implementing loadstring LUA's native function instead of
+the AB's temp.lua method. Now, for example, the Calculator is 200 times faster than the old one, like the Helper FUnctions (and others...);
+- The E.M.T. (Environment Main Tree) has been renewed: the AUFS Files go to aufs/ and all the commands files go to cmds/.
+- The SCRIPT.LUA has been divided into: SCRIPT.LUA and a-utils.lua, which contain all the necessary LUA functions;
+- Now the 'info' command will tell you about the Security Information, like:
+Password, PSN Account, PSN Pass, SSID Name, SSID Pass, SSID2 Name and SSID2 Pass,
+and It will also tell you the Init CPU, the Current CPU and the BUS;
+- Now if a basic file doesnt exist in AlphaBase HM/ main root then the script will tell you
+this file and the related ERROR Number (identified by 100 + the file ID).
+- Now you can assign to the I.P.R. Commands (Input Param Require), an INPUT which contain
+the C.P.S. symbol, but you have to put the INPUT param as the last param of the command.
+This commands so, are now defined as: "marks [NAME]~[INPUT]", "set [TIME2,TIME1]~(MODE)~[INPUT]", "pos [XMIN,YMIN,XMAX,YMAX]~[INPUT]";
+- Added a LUA highly-powerful Commands Handler, which allow you to create new commands after declaring their own related functions.
+With this system, the function will provide automatically to insert the command in the cmds array; 
+- Added the Multi-Environment System. Now you can do more User Execution in more AB environments.
+You can create a new env by typing 'envs env', where env (optionally) is the name of the env.
+You can switch the Current Environment by pressing L or R keys;
+- Added new controls at the beginning and performed the existant about the initial stuffs;
+- Script Speed increased of 20% (after all this work, at least...);
+- Environment Syntax highly optimized;
+- Language Syntax highly optimized;
+- Code highly cleared and optimized;
+- Eboot updated;
+
+v3.6.1 --
+
+- Stringer function (alias fixString), that works to fix the string which contain paths
+has been highly fixed. Now It works perfectly;
+- Code optimized;
+- Eboot updated;
+
+v3.6.2 --
+
+- Fixed a bug in the AUFS I.G.C. (Items Garbage Collector). Now It's newly possible to save the items you collect
+(like markers, macros, poscontrols) during the environment execution;
+- Fixed a bug in the 'share' command, which didn't work cause a bad call of the fixString Function;
+- Fixed a bug in the 'set' command, which didn't work cause a bad enumeration
+of the variable which contain the command params;
+- Fixed a bug in the 'print' command, which showed a LUA-Error on calling;
+- Fixed a bug in the 'list' command, which didn't work if you wanted to list a RAR archive;
+- Fixed a bug in the 'play2' command, which didn't play the song after this has been loaded;
+- Removed the Security Informations in the 'info' command;
+- Optimized the 'ext', 'play' and 'play2' commands;
+- Renamed the command 'loadex' in 'load2';
+- E.M.T. (Environment Main Tree) has been renewed, by removing the aufs folder. Now all the AUF Files are optionally;
+- Environment Syntax highly optimized;
+- Language Syntax highly optimized;
+- Code optimized;
+- Eboot updated;
+
+v3.6.4 --
+
+- Optimized the 'list', 'tree', 'load2' and 'cpu2' commands.
+- Now, if in the 'list' or 'tree' commands the PATH param won't pass,
+then the default param is the current directory;
+- Renamed the command 'remove' to 'rem';
+- Added a new syscolor, the green, in order to print the successful operations;
+- Made the SCRIPT.LUA more readable;
+- Language Syntax optimized;
+- Code optimized;
+
+v3.6.5 --
+
+- Optimized the 'time', 'set' and 'envs' commands;
+- Fixed a bug in the 'envs' command, which showed a LUA Error on calling if you passed the C.E. or W.E. as param;
+- Fixed a bug which didn't allow to stop a timer if this was started with the repeat param at 1;
+- Code optimized;
+
+V3.6.8 --
+
+- Fixed a bug in the 'rect' command, which didn't allow to draw an empty rect, even if you passed 1 as MODE param;
+- Created a new main subscript, CEU.LUA. It refers to the C.E.U. (Commands Elaboration Unit), and contains
+the functions which may be associated with the commands management;
+- Updated the ERROR system at the homebrew launch;
+- Made the SCRIPT.LUA more readable;
+- Script total speed increased of about 10%;
+- Language Syntax optimized;
+- Code optimized.
